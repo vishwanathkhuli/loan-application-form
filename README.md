@@ -60,7 +60,3 @@ The application will open in your browser at `http://localhost:3000`.
 2. Navigate to the Loan Details form
 3. If your credit score is below 700, additional fields for guarantors and bank statements will appear
 4. Submit the application to receive confirmation
-
-## License
-
-MIT 
