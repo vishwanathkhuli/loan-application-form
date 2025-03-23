@@ -1,0 +1,519 @@
+body {
+  margin: 0;
+  font-family: 'Roboto', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f8f9fa;
+  padding-bottom: 20px;
+  margin-bottom: 0;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* RJSF Custom Styling */
+.business-details-rjsf .array-item-add,
+.loan-details-rjsf .array-item-add {
+  text-align: left;
+  margin-top: 12px;
+}
+
+/* Add space between array items */
+.business-details-rjsf .array-item,
+.loan-details-rjsf .array-item {
+  margin-bottom: 24px;
+  padding: 24px;
+  background-color: #fafafa;
+  border-radius: 8px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Improve array item titles */
+.business-details-rjsf .array-item-title,
+.loan-details-rjsf .array-item-title {
+  font-weight: 500;
+  margin-bottom: 16px;
+  color: #1565c0;
+}
+
+/* Enhance file upload appearance */
+.loan-details-rjsf input[type="file"] {
+  padding: 16px;
+  border: 2px dashed #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  width: 100%;
+  margin: 8px 0;
+  transition: border-color 0.3s, background-color 0.3s;
+}
+
+.loan-details-rjsf input[type="file"]:hover {
+  border-color: #2e7d32;
+  background-color: #f0f7f0;
+}
+
+/* Improved range slider appearance for loan amount */
+.loan-details-rjsf .range-widget-wrapper {
+  position: relative;
+  padding: 20px 0;
+  margin-bottom: 20px;
+}
+
+.loan-details-rjsf input[type="range"] {
+  width: 100%;
+  height: 10px;
+  border-radius: 5px;
+  appearance: none;
+  -webkit-appearance: none;
+  background: linear-gradient(to right, #c5e1a5, #2e7d32);
+  outline: none;
+  margin-bottom: 15px;
+}
+
+.loan-details-rjsf input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #1b5e20;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: 2px solid white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.loan-details-rjsf input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+  background: #2e7d32;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+}
+
+.loan-details-rjsf input[type="range"]::-webkit-slider-thumb:active {
+  transform: scale(1.2);
+}
+
+/* Loan amount display */
+.loan-amount-display {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  color: #333;
+  font-weight: 500;
+}
+
+/* Tick marks for loan amount range */
+.loan-amount-ticks {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
+  margin-top: 8px;
+  position: relative;
+}
+
+.loan-amount-ticks .tick {
+  position: relative;
+  height: 8px;
+  color: #666;
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+.loan-amount-ticks .tick::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1px;
+  height: 5px;
+  background-color: #ccc;
+}
+
+/* Number input for precise control */
+.loan-amount-input {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+}
+
+.loan-amount-input span {
+  font-weight: 500;
+  color: #333;
+  margin-right: 8px;
+}
+
+.loan-amount-input input[type="number"] {
+  flex: 1;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.loan-amount-input input[type="number"]:focus {
+  border-color: #2e7d32;
+  box-shadow: 0 0 0 2px rgba(46, 125, 50, 0.2);
+}
+
+/* Mobile responsiveness for loan amount slider */
+@media (max-width: 600px) {
+  .loan-amount-ticks {
+    display: none;
+  }
+  
+  .loan-amount-input {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .loan-amount-input span {
+    margin-bottom: 4px;
+  }
+  
+  .loan-amount-input input[type="number"] {
+    width: 100%;
+  }
+}
+
+/* Ensure descriptive text is visible */
+.business-details-rjsf .field-description,
+.loan-details-rjsf .field-description {
+  font-size: 0.85rem;
+  color: #666;
+  margin: 4px 0 12px;
+}
+
+/* Improve error message styling */
+.business-details-rjsf .error-detail,
+.loan-details-rjsf .error-detail {
+  color: #d32f2f;
+  font-size: 0.85rem;
+  margin-top: 4px;
+  font-weight: 500;
+}
+
+/* Field titles */
+.business-details-rjsf .control-label,
+.loan-details-rjsf .control-label {
+  font-weight: 500 !important;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+/* Form section titles */
+.business-details-rjsf legend,
+.loan-details-rjsf legend {
+  font-weight: 600;
+  color: #2e7d32;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+/* Remove extra submit button from RJSF */
+.business-details-rjsf .MuiButton-contained,
+.loan-details-rjsf .MuiButton-contained {
+  display: none;
+}
+
+/* Improve object field styling */
+.business-details-rjsf fieldset,
+.loan-details-rjsf fieldset {
+  padding: 20px;
+  background-color: rgba(245, 245, 245, 0.5);
+  border-radius: 8px;
+  border: 1px solid #e0e0e0 !important;
+  margin-bottom: 24px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .business-details-rjsf .array-item,
+  .loan-details-rjsf .array-item {
+    padding: 16px;
+  }
+  
+  .business-details-rjsf fieldset,
+  .loan-details-rjsf fieldset {
+    padding: 12px;
+  }
+}
+
+/* Required field indicator */
+.required {
+  color: #f44336;
+  margin-left: 4px;
+  font-weight: bold;
+}
+
+/* Apply styles to React JSON Schema Form required labels */
+.MuiFormLabel-root.MuiFormLabel-required::after {
+  content: " *";
+  color: #f44336;
+  font-weight: bold;
+}
+
+/* Custom style for RJSF form fields */
+form.rjsf label.control-label.required::after {
+  content: " *";
+  color: #f44336;
+  font-weight: bold;
+}
+
+/* Fix for JSON Schema Form required labels */
+.form-group label.control-label.required::after {
+  content: " *";
+  color: #f44336;
+  font-weight: bold;
+}
+
+/* Additional style for business and loan details forms */
+.business-details-rjsf .form-group.field.field-string label.control-label.required::after,
+.loan-details-rjsf .form-group.field.field-string label.control-label.required::after,
+.loan-details-rjsf .form-group.field.field-number label.control-label.required::after {
+  content: " *";
+  color: #f44336;
+  font-weight: bold;
+}
+
+/* Override RJSF default to show red stars for required fields */
+.rjsf .control-label.required:after {
+  content: " *";
+  color: #f44336;
+  font-weight: bold;
+}
+
+/* More specific selectors for RJSF fields in specific forms */
+.business-details-rjsf .form-group label.control-label.required:after,
+.loan-details-rjsf .form-group label.control-label.required:after {
+  content: " *";
+  color: #f44336;
+  font-weight: bold;
+}
+
+/* Ensure array item fields also show required indicators */
+.array-item .form-group label.control-label.required:after {
+  content: " *";
+  color: #f44336;
+  font-weight: bold;
+}
+
+/* Fix for duplicate required asterisks */
+.rjsf .field-required:after {
+  display: none !important;
+}
+
+/* Fix for range widget labels and inputs */
+.range-widget-wrapper .required {
+  display: none !important;
+}
+
+.loan-amount-display {
+  display: flex;
+  justify-content: space-between;
+  margin: 8px 0;
+}
+
+.loan-amount-ticks {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 4px;
+}
+
+.loan-amount-input {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.loan-amount-input input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Additional RJSF styling fixes */
+.rjsf legend {
+  display: none !important;
+}
+
+.rjsf .control-label {
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+/* Allow only one asterisk */
+label .MuiFormLabel-asterisk + .required {
+  display: none !important;
+}
+
+.field-required .required:nth-child(2) {
+  display: none !important;
+}
+
+.MuiFormLabel-asterisk:nth-of-type(2) {
+  display: none !important;
+}
+
+/* Fix for duplicate required asterisks - more specific and forceful rules */
+.MuiFormControl-root .MuiFormLabel-asterisk,
+.MuiInputLabel-root .MuiFormLabel-asterisk {
+  color: #f44336 !important;
+}
+
+/* Hide all RJSF asterisks completely */
+.rjsf .field-required::after,
+.rjsf label.control-label.required::after,
+.form-group label.control-label.required::after,
+.array-item .form-group label.control-label.required::after,
+.rjsf .control-label.required:after {
+  display: none !important;
+}
+
+/* Hide any spans with class required */
+span.required {
+  display: none !important;
+}
+
+/* More specific selectors for array items */
+.array-item-content .form-group label::after,
+.array-item fieldset legend::after {
+  display: none !important;
+}
+
+/* Remove the global content-hiding rule that hides all asterisks */
+*::after {
+  content: normal;
+}
+
+/* Make MUI FormLabel red asterisks visible again */
+.MuiFormLabel-root.Mui-required::after {
+  content: " *" !important;
+  color: #f44336 !important;
+  font-weight: bold !important;
+  display: inline !important;
+}
+
+/* Fix specific hidden required asterisks */
+.MuiInputLabel-root.Mui-required::after {
+  content: " *" !important;
+  color: #f44336 !important;
+  display: inline !important;
+}
+
+/* Make RJSF control labels show required asterisks */
+.rjsf .control-label.required::after {
+  content: " *" !important; 
+  color: #f44336 !important;
+  font-weight: bold !important;
+  display: inline !important;
+}
+
+/* Show required asterisks for array items */
+.array-item .form-group label.control-label.required::after {
+  content: " *" !important;
+  color: #f44336 !important;
+  display: inline !important;
+}
+
+/* Reset content for other elements but not for required indicators */
+div::after, p::after, section::after, header::after, footer::after, 
+article::after, main::after, aside::after, nav::after, button::after {
+  content: "";
+}
+
+/* Clear our previous hides for required indicators */
+.rjsf .field-required::after,
+.rjsf label.control-label.required::after,
+.form-group label.control-label.required::after,
+.array-item .form-group label.control-label.required::after,
+.rjsf .control-label.required:after {
+  display: inline !important;
+  content: " *" !important;
+  color: #f44336 !important;
+  font-weight: bold !important;
+}
+
+/* Show spans with class required */
+span.required {
+  display: inline !important;
+  color: #f44336 !important;
+}
+
+/* Make asterisks visible for array items */
+.array-item-content .form-group label::after,
+.array-item fieldset legend::after {
+  display: inline !important;
+}
+
+/* Add bottom padding to the page for sticky navigation */
+body {
+  padding-bottom: 80px;
+}
+
+/* Ensure space at bottom of forms for navigation */
+.business-details-rjsf,
+.loan-details-rjsf {
+  margin-bottom: 30px !important;
+}
+
+/* Ensure content doesn't get hidden behind fixed navigation */
+.MuiContainer-root {
+  padding-bottom: 20px !important;
+}
+
+/* Form container styles */
+.MuiContainer-root {
+  padding-bottom: 20px !important;
+}
+
+/* Form styles */
+.business-details-rjsf,
+.loan-details-rjsf {
+  margin-bottom: 30px !important;
+}
+
+/* Form fields styles */
+.business-details-rjsf .MuiFormControl-root,
+.loan-details-rjsf .MuiFormControl-root {
+  margin-bottom: 20px;
+}
+
+/* Error message styling */
+.business-details-rjsf .MuiAlert-root,
+.loan-details-rjsf .MuiAlert-root {
+  margin-bottom: 20px;
+}
+
+/* Navigation buttons */
+.navigation-buttons {
+  margin-top: 30px;
+  margin-bottom: 40px;
+}
+
+/* Form validation error text */
+.validation-errors {
+  color: #f44336;
+  font-size: 0.875rem;
+  margin-top: 4px;
+}
+
+/* Form field error highlight */
+.field-error .MuiOutlinedInput-root {
+  border-color: #f44336;
+}
+
+/* Fix for the alert spacing */
+.MuiAlert-root {
+  margin-bottom: 16px;
+}

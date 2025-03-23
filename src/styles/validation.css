@@ -1,0 +1,119 @@
+/* Common styles */
+:root {
+    --error-color: #d32f2f;
+    --error-hover: #d32f2f;
+    --text-secondary: #666;
+    --border-color: #e0e0e0;
+    --background-light: #fafafa;
+}
+
+/* Validation error styles */
+.validation-error {
+    color: var(--error-color);
+    font-size: 12px;
+    margin-top: 4px;
+    font-weight: 500;
+}
+
+.validation-error ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.validation-error li {
+    color: var(--error-color);
+    margin-top: 3px;
+}
+
+/* Input field error states */
+.has-error input,
+.field-error {
+    border-color: var(--error-color) !important;
+}
+
+.has-error input:focus,
+.field-error:focus {
+    border-color: var(--error-color) !important;
+    box-shadow: 0 0 0 0.2rem rgba(211, 47, 47, 0.25) !important;
+}
+
+/* Help text and descriptions */
+.help-block {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-top: 4px;
+}
+
+/* Custom error messages */
+.custom-error {
+    color: var(--error-color);
+    font-size: 12px;
+    margin-top: 4px;
+    font-weight: 500;
+    display: block;
+}
+
+/* Form group error states */
+.form-group.has-error .validation-error {
+    color: var(--error-color);
+    font-size: 12px;
+    margin-top: 4px;
+    font-weight: 500;
+}
+
+/* Array field error states */
+.array-item .validation-error {
+    color: var(--error-color);
+    font-size: 12px;
+    margin-top: 4px;
+    font-weight: 500;
+}
+
+/* Form field styling */
+.business-details-form .field {
+    margin-bottom: 16px;
+}
+
+/* Required field indicator */
+.business-details-form .required::after {
+    content: " *";
+    color: var(--error-color);
+    margin-left: 4px;
+}
+
+/* Director item styles */
+.director-item {
+    position: relative;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: var(--background-light);
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+/* Remove button styles */
+.director-item .array-item-remove {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: var(--error-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 6px 12px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: background-color 0.2s;
+}
+
+.director-item .array-item-remove:hover {
+    background-color: var(--error-hover);
+}
+
+/* Ensure remove button visibility */
+.array-item-remove {
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
